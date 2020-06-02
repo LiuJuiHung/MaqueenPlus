@@ -29,9 +29,6 @@ enum PIN {
     P14 = 22,
     P15 = 21,
 };
-/**
-* 电机
-*/
 enum Motors {
     //% block="left"
     M1 = 1,
@@ -49,9 +46,6 @@ enum Motors1 {
 }
 
 
-/**
- * 正反转
- */
 enum Dir {
     //% block="CW"
     CW = 1,
@@ -59,9 +53,6 @@ enum Dir {
     CCW = 2
 }
 
-/**
- * 舵机
- */
 enum Servos {
     //% block="S1"
     S1 = 1,
@@ -71,9 +62,6 @@ enum Servos {
     S3 = 3
 }
 
-/**
- * RGB灯
- */
 enum RGBLight {
     //%block="RGB_L"
     RGBL = 1,
@@ -83,9 +71,6 @@ enum RGBLight {
     RGBA = 3
 }
 
-/**
- * 寻线传感器
- */
 enum Patrol {
     //% block="L1"
     L1 = 1,
@@ -101,26 +86,18 @@ enum Patrol {
     R3 = 6
 }
 
-/**
- * 超声波单位
- */
 enum Sonicunit {
     //% block="cm"
     Centimeters
 }
 
-/**
- * PID开关
- */
 enum PID {
     //%block="OFF"
     OFF = 0,
     //%block="ON"
     ON = 1
 }
-/**
- * RGB灯颜色
- */
+
 enum Color {
     //%block="Red"
     RED = 1,
@@ -181,9 +158,6 @@ namespace DFRobotMaqueenPluss {
         basic.clearScreen()
     }
 
-    /**
-     * 开启PID
-     */
     //%block="PID switch|%pid"
     export function PID(pid: PID): void {
         let buf = pins.createBuffer(2);
@@ -191,9 +165,7 @@ namespace DFRobotMaqueenPluss {
         buf[1] = pid;
         pins.i2cWriteBuffer(0x10, buf);
     }
-    /**
-     * 控制电机运行
-     */
+
     //% block="Motor|%index|direction|%direction|speed|%speed "
     //% speed.min=0 speed.max=255
     export function mototRun(index: Motors, direction: Dir, speed: number): void {
@@ -225,9 +197,6 @@ namespace DFRobotMaqueenPluss {
             pins.i2cWriteBuffer(0x10, buf)
         }
     }
-    /**
-    * 控制电机停止
-    */
     //% block="Motor|%index stop"
     export function mototStop(index: Motors): void {
 
@@ -257,9 +226,6 @@ namespace DFRobotMaqueenPluss {
     }
 
 
-    /**
-     * 电机补偿
-     */
     //% block="Motor Compensation|%motor speed|%speed"
     //% speed.min=0 speed.max=255
     export function mostotCompensation(motor: Motors1, speed: number): void {
@@ -274,9 +240,6 @@ namespace DFRobotMaqueenPluss {
             pins.i2cWriteBuffer(0x10, buf)
         }
     }
-    /**
-     * 读电机转速
-     */
     //%block="read Motor|%index speed"
     export function readSpeed(index: Motors1): number {
         let _speed:number;
@@ -289,9 +252,6 @@ namespace DFRobotMaqueenPluss {
         }
         return -1;
     }
-    /**
-     * 读电机正反转
-     */
     //%block="read Motor|%index direction(stop:0,forward:1,back:2)"
     export function readDirection(index: Motors1): number {
         pins.i2cWriteNumber(0x10, 0, NumberFormat.Int8LE)
@@ -305,9 +265,6 @@ namespace DFRobotMaqueenPluss {
         return -1
     }
 
-    /**
-     * 舵机
-     */
     //% block="servo|%index|angle|%angle"
     //% angle.min=0  angle.max=180
     export function servoRun(index: Servos, angle: number): void {
@@ -331,9 +288,6 @@ namespace DFRobotMaqueenPluss {
         }
     }
 
-    /**
-     * RGB灯
-     */
     //% block="set |%rgbshow color|%color"
     export function setRGBLight(rgbshow: RGBLight, color: Color): void {
 
@@ -357,9 +311,6 @@ namespace DFRobotMaqueenPluss {
 
     }
 
-    /**
-     * 寻线传感器
-     */
     //%block="read patrol sensor|%patrol"
     export function readPatrol(patrol: Patrol): number {
         pins.i2cWriteNumber(0x10, 0x1D, NumberFormat.Int8LE);
@@ -376,10 +327,6 @@ namespace DFRobotMaqueenPluss {
         
         return mark
     }
-
-    /**
-     * 读取巡线传感器灰度值
-     */
     //% block="read patrol sensor|%patrol voltage "
     export function readPatrolVoltage(patrol: Patrol): number {
         pins.i2cWriteNumber(0x10, 0x1E, NumberFormat.Int8LE);
@@ -408,9 +355,6 @@ namespace DFRobotMaqueenPluss {
         }
         return patrol_AD;
     }
-    /**
-     * 读版本号
-     */
     //%block="get product information"
     export function readVersion(): string {
         pins.i2cWriteNumber(0x10, 0x32, NumberFormat.Int8LE);
@@ -420,9 +364,6 @@ namespace DFRobotMaqueenPluss {
         let Version_x = Version_y.toString();
         return Version_x;
     }
-    /**
-     * 超声波
-     */
     //%block="read ultrasonic sensor T|%T E|%E cm"
     export function ultraSonic(T: PIN, E: PIN): number {
         let maxCmDistance = 500;
@@ -479,9 +420,6 @@ namespace DFRobotMaqueenPluss {
 
 
     }
-    /**
-     * 紅外 infra-red sensor
-     */
     //% advanced=true shim=maqueenIR::initIR
     function initIR(pin: Pins): void {
         return
