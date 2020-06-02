@@ -13,8 +13,7 @@ Date:   2019.October
 open your microbit makecode project, in Extension, paste  
 (https://github.com/kodorobot/MaqueenPlus)
 to search box then search.
-Get the module here  
-(https://www.dfrobot.com.cn/goods-1802.html)
+
 ## Basic usage
 
 * Set the motion direction and speed of Maqueen motor
