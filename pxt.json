@@ -1,0 +1,27 @@
+{
+    "name": "MaqueenPlus",
+    "version": "1.0.2",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "maqueenplus.ts",
+        "enums.d.ts",
+        "maqueenIR.cpp",
+        "ReceiverIR.cpp",
+        "ReceiverIR.h",
+        "RemoteIR.h",
+        "shims.d.ts",
+        "_locales/zh/MaqueenPlus-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
