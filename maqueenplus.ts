@@ -47,7 +47,7 @@ enum Motors1 {
 
 enum Motors2 {
     //% block="ALL"
-    ALL = 3
+    ALL = 1
 }
 
 
@@ -231,7 +231,7 @@ namespace DFRobotMaqueenPluss {
         let _speed:number;
         _speed = (128 + (speed/8));
         //_speed=Math.round(speed/1.11);
-        if (index == 3) {
+        if (index == 1) {
             let buf = pins.createBuffer(5)
             buf[0] = 0x00;
             buf[1] = direction;
