@@ -197,6 +197,8 @@ namespace DFRobotMaqueenPluss {
             pins.i2cWriteBuffer(0x10, buf)
         }
     }
+
+    //% block="Motor|%index|direction|%direction|speed|%speed "
     export function mototRunWhenReceive(index: Motors1, direction: Dir, speed: number): void {
         let _speed:number;
         
