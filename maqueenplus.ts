@@ -212,14 +212,14 @@ namespace DFRobotMaqueenPluss {
             let buf = pins.createBuffer(3)
             buf[0] = 0x00;
             buf[1] = direction;
-            buf[2] = _speed = (128 + (speed/8));
+            buf[2] = _speed = (64 + (speed/16));
             pins.i2cWriteBuffer(0x10, buf)
 
         } if (index == 2) {
             let buf = pins.createBuffer(3)
             buf[0] = 0x02;
             buf[1] = direction;
-            buf[2] = _speed = (128 - (speed/8));
+            buf[2] = _speed = (64 - (speed/16));
             pins.i2cWriteBuffer(0x10, buf)
         }
 
