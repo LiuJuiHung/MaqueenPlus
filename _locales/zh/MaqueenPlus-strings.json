@@ -4,6 +4,7 @@
     "Motors.ALL|block": "全部",
     "Motors1.M1|block": "左側",
     "Motors1.M2|block": "右側",
+    "Motors2.ALL|block": "全部",
     "PID.OFF|block": "關",
     "PID.ON|block": "開",
     "Dir.CW|block": "正轉",

@@ -45,6 +45,11 @@ enum Motors1 {
     M2 = 2,
 }
 
+enum Motors2 {
+    //% block="ALL"
+    ALL = 3
+}
+
 
 enum Dir {
     //% block="CW"
@@ -222,22 +227,17 @@ namespace DFRobotMaqueenPluss {
 
     /*直線加速*/
     //% block="Motor|%index|direction|%direction|speed|%speed "
-    export function mototRunWhenReceive_Speedup(index: Motors1, direction: Dir, speed: number): void {
+    export function mototRunWhenReceive_Speedup(index: Motors2, direction: Dir, speed: number): void {
         let _speed:number;
         _speed = (128 + (speed/8));
         //_speed=Math.round(speed/1.11);
-        if (index == 1) {
-            let buf = pins.createBuffer(3)
+        if (index == 3) {
+            let buf = pins.createBuffer(5)
             buf[0] = 0x00;
             buf[1] = direction;
             buf[2] = _speed;
-            pins.i2cWriteBuffer(0x10, buf)
-
-        } if (index == 2) {
-            let buf = pins.createBuffer(3)
-            buf[0] = 0x02;
-            buf[1] = direction;
-            buf[2] = _speed;
+            buf[3] = direction;
+            buf[4] = _speed;
             pins.i2cWriteBuffer(0x10, buf)
         }
 
