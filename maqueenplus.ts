@@ -224,7 +224,7 @@ namespace DFRobotMaqueenPluss {
     //% block="Motor|%index|direction|%direction|speed|%speed "
     export function mototRunWhenReceive_Speedup(index: Motors1, direction: Dir, speed: number): void {
         let _speed:number;
-        _speed = (128 + (speed/8))/240;
+        _speed = (128 + (speed/8));
         //_speed=Math.round(speed/1.11);
         if (index == 1) {
             let buf = pins.createBuffer(3)
