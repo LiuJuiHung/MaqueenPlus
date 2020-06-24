@@ -220,7 +220,7 @@ namespace DFRobotMaqueenPluss {
 
     }
 
-    // 直線加速
+    /*直線加速*/
     //% block="Motor|%index|direction|%direction|speed|%speed "
     export function mototRunWhenReceive_Speedup(index: Motors1, direction: Dir, speed: number): void {
         let _speed:number;
