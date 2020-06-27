@@ -14,7 +14,7 @@
     "RGBLight.RGBA|block": "全部RGB燈",
     "DFRobotMaqueenPluss.PID|block": "PID開關|%pid",
     "DFRobotMaqueenPluss.mototRun|block": "馬達往|%index方向|%direction速度|%speed",
-    "DFRobotMaqueenPluss.mototRunWhenReceive|block": "使用遙控器時馬達|%index方向正轉 速度|%speed",
+    "DFRobotMaqueenPluss.mototRunWhenReceive|block": "使用遙控器時馬達|%index方向|%direction速度|%speed",
     "DFRobotMaqueenPluss.mototRunWhenReceive_Speedup|block": "按下按鈕時全速 方向|%direction",
     "DFRobotMaqueenPluss.mostotCompensation|block": "馬達 補償|%motor速度|%speed",
     "DFRobotMaqueenPluss.readSpeed|block": "讀馬達 |%index速度",
