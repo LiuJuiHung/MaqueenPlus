@@ -206,13 +206,19 @@ namespace DFRobotMaqueenPluss {
     //% block="Motor|%index|direction|%direction|speed|%speed "
     export function mototRunWhenReceive(index: Motors1, direction: Dir, speed: number): void {
         let _speed:number;
-        let l_speed = (64 + (speed/16));
-        if (l_speed >= 255) {
-            l_speed = 250;
+        let l_speed = (64 + (speed/8));
+        if (l_speed >= 190) {
+            l_speed = 190;
         }
-        let r_speed = (64 - (speed/16));
-        if (r_speed <= 0) {
-            r_speed = 0;
+        else if(l_speed <= 0) {
+            l_speed = 190;
+        }
+        let r_speed = (64 - (speed/8));
+        if (r_speed >= 190) {
+            r_speed = 190;
+        }
+        else if(r_speed <= 0) {
+            r_speed = 190;
         }
         //_speed=Math.round(speed/1.11);
         if (index == 1) {
