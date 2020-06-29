@@ -211,14 +211,14 @@ namespace DFRobotMaqueenPluss {
             l_speed = 190;
         }
         else if(l_speed <= 0) {
-            l_speed = 190;
+            l_speed = 0;
         }
         let r_speed = (64 - (speed/8));
         if (r_speed >= 190) {
             r_speed = 190;
         }
         else if(r_speed <= 0) {
-            r_speed = 190;
+            r_speed = 0;
         }
         //_speed=Math.round(speed/1.11);
         if (index == 1) {
