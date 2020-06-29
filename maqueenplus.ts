@@ -206,20 +206,27 @@ namespace DFRobotMaqueenPluss {
     //% block="Motor|%index|direction|%direction|speed|%speed "
     export function mototRunWhenReceive(index: Motors1, direction: Dir, speed: number): void {
         let _speed:number;
-        
+        let l_speed = (64 + (speed/16));
+        if (l_speed >= 255) {
+            l_speed = 250;
+        }
+        let r_speed = (64 - (speed/16));
+        if (r_speed <= 0) {
+            r_speed = 0;
+        }
         //_speed=Math.round(speed/1.11);
         if (index == 1) {
             let buf = pins.createBuffer(3)
             buf[0] = 0x00;
             buf[1] = direction;
-            buf[2] = _speed = (64 + (speed/16));
+            buf[2] = l_speed;
             pins.i2cWriteBuffer(0x10, buf)
 
         } if (index == 2) {
             let buf = pins.createBuffer(3)
             buf[0] = 0x02;
             buf[1] = direction;
-            buf[2] = _speed = (64 - (speed/16));
+            buf[2] = r_speed;
             pins.i2cWriteBuffer(0x10, buf)
         }
 
