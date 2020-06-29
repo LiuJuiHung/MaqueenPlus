@@ -239,10 +239,10 @@ namespace DFRobotMaqueenPluss {
     }
 
     /*直線加速*/
-    //% block="Motor|%index|direction|%direction|speed|%speed "
+    //% block="direction|%direction "
     export function mototRunWhenReceive_Speedup(direction: Dir): void {
         let _speed:number;
-        _speed = 255;
+        _speed = 240;
         //_speed=Math.round(speed/1.11);
         let buf = pins.createBuffer(5)
         buf[0] = 0x00;
